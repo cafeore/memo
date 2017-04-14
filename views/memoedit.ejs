@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>メモ一覧</title>
+    <link rel='stylesheet' href='/stylesheets/memoedit.css' />
+    <link rel="stylesheet" href="../stylesheets/library/sweetalert2.min.css">
+    <table width="90%" align="left">
+      <thead>
+        <th width="30%">タイトル</th>
+        <th width="30%">最終編集時間</th>
+        <th width="30%">作成時間</th>
+        <!--<th width="10%">削除</th>-->
+      </thead>
+      <tbody>
+        <% data.forEach(function(val){ %>
+          <tr class="table">
+              <td class="titleCell" height="21px">
+                  <%= val.title %>
+              </td>
+              <td class="edittimeCell" height="21px">
+                  <%= val.edittime %>
+              </td>
+              <td class="createtimeCell" height="21px">
+                  <%= val.createtime %>
+              </td>
+              <!--<td class="checkbox">
+                <input type="checkbox" name="check" value="<%= val.title %>">
+              </td>-->
+          </tr>
+        <% }) %>
+      </tbody>
+
+    </table>
+      <table width="10%">
+          <thead>
+          <th width="10%">削除</th>
+          </thead>
+          <tbody>
+          <% data.forEach(function(val){ %>
+          <tr>
+              <td class="checkbox">
+                <input type="checkbox" name="check" value="<%= val.title %>">
+              </td>
+          </tr>
+          <% }) %>
+          </tbody>
+
+      </table>
+        <p id="tableedit"><a href="#tableContent">メモの追加</a></p>
+          <div id="tableContent">
+            <ul>
+              <h1>メモのタイトル</h1><input type="text" id="title" class="form-control intable title">
+              <input type="submit" id="submit" value="追加">
+              <button type="button" id="clear">クリア</button>
+            </ul>
+          </div>
+        <button id="delete">メモの削除</button>
+        
+
+</html>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="../javascripts/library/sweetalert2.min.js"></script>
+<script type="text/javascript" src="../javascripts/memoselect.js"></script>
